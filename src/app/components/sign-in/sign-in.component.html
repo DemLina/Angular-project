@@ -1,0 +1,20 @@
+<section class="sing-in">
+    <div class="sing-in__container">
+        <div class="sing-in__form">
+            <h2>Sign in</h2>
+            <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+                <div class="sing-in__field">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Email" ngModel name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                </div>
+                <div class="sing-in__field">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Password" ngModel name="password" required minlength="8">
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Sign in</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
