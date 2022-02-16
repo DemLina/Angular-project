@@ -1,20 +1,20 @@
-<section class="sing-in">
-    <div class="sing-in__container">
-        <div class="sing-in__form">
+<section class="input-form">
+    <div class="input-form__container">
+        <div class="input-form__form">
             <h2>Sign in</h2>
-            <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
-                <div class="sing-in__field">
+            <form #myform="ngForm" (ngSubmit)="onSubmit(email)">
+                <div class="input-form__field">
                     <label for="email">Email</label>
-                    <input type="email" placeholder="Email" ngModel name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                    <input type="email" placeholder="Email" ngModel name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel"  >
+                    <span *ngIf="email.invalid && email.value.length > 0">Please input correct email </span>
                 </div>
-                <div class="sing-in__field">
+                <div class="input-form__field">
                     <label for="password">Password</label>
-                    <input type="password" placeholder="Password" ngModel name="password" required minlength="8">
+                    <input type="password" placeholder="Password" ngModel name="password" required minlength="8" #password="ngModel">
+                    <span *ngIf="password.invalid && password.value.length > 0">Please input more than 8 symbols</span>
                 </div>
-                <button type="submit" class="btn btn-primary" [disabled]="myform.invalid">Sign in</button>
+                <button type="submit" class="btn btn--purple" [disabled]="myform.invalid">Sign in</button>
             </form>
         </div>
     </div>
 </section>
-
-

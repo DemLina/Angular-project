@@ -8,14 +8,16 @@ import { AppComponent } from './app.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { userReducer } from './store/reducer/user.reducer';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FriendsComponent } from './components/friends/friends.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     AdminPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,
