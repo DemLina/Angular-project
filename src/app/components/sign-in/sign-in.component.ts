@@ -12,10 +12,9 @@ import { AppState } from 'src/app/models/state-user.model';
 })
 export class SignInComponent {
   constructor(private myRouter: Router, private store: Store<AppState>) {}
-  
-    onSubmit(email: NgModel) {
-      this.store.dispatch(addUser({user: {email: email.value}}))
-      this.myRouter.navigateByUrl(('/profile'));
-    }
 
+  onSubmit(email: NgModel) {
+    this.store.dispatch(addUser({ user: { email: email.value } }));
+    this.myRouter.navigateByUrl('/profile');
+  }
 }

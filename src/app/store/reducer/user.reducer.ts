@@ -3,24 +3,25 @@ import { User } from 'src/app/models/user.model';
 import { addUser, updateUser } from '../actions/user.action';
 
 const initialState = {
-  users: []
-}
+  users: [],
+};
 export interface State {
-    users: User[]
+  users: User[];
 }
 export const userReducer = createReducer(
   initialState,
   on(addUser, (state, { user }) => {
     console.log(state, user);
-    return    {
+    return {
       ...state,
-      users: [...state.users, user] as any
-    }
+      users: [...state.users, user] as any,
+    };
   }),
-  on(updateUser,(state, { user }) => {
+  on(updateUser, (state, { user }) => {
     console.log(state, user);
-    return    {
-      users: [user] as any
-    }
-  }),
+    let newState = state.users.filter((item: User) => item.email !== user.email);
+    return {
+      users: [newState, user] as any,
+    };
+  })
 );

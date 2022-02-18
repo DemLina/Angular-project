@@ -1,24 +1,32 @@
 <app-header></app-header>
 <section class="input-form">
-    <div class="input-form__container">
-        <div class="input-form__form">
-            <h2>Profile</h2>
-            <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" >
-                <div class="input-form__field">
-                    <label for="user">Username</label>
-                    <input type="text" placeholder="Username" ngModel name="user" required>
-                </div>
-                <div class="input-form__field">
-                    <label for="email">Email</label>
-                    <input type="email" placeholder="Email" ngModel name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel">
-                    <span *ngIf="email.invalid && email.value.length > 0">Please input correct email </span>
-                </div>
-                <div class="input-form__field">
-                    <label for="age">Age</label>
-                    <input type="number" placeholder="Age" ngModel name="age" required>
-                </div>
-                <button type="submit" class="btn btn--purple" [disabled]="myform.invalid">Save</button>
-            </form>
+  <div class="input-form__container">
+    <div class="input-form__form">
+      <h2>Profile</h2>
+      <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+        <div class="input-form__field">
+          <label for="user">Username</label>
+          <input type="text" placeholder="Username" ngModel name="user" required />
         </div>
+        <div class="input-form__field">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            placeholder="Email"
+            ngModel
+            name="email"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            #email="ngModel"
+          />
+          <span *ngIf="email.invalid && email.value.length > 0">Please input correct email </span>
+        </div>
+        <div class="input-form__field">
+          <label for="age">Age</label>
+          <input type="number" placeholder="Age" ngModel name="age" required />
+        </div>
+        <button type="submit" class="btn btn--purple" [disabled]="myform.invalid">Save</button>
+      </form>
     </div>
+  </div>
 </section>

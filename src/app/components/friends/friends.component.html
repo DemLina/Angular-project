@@ -1,36 +1,46 @@
 <app-header></app-header>
 <section class="list-with-friends">
-    <div class="list-with-friends__container">
-        <div class="list-with-friends__title">
-            <h2>Friend</h2>
-        </div>
-        <div class="list-with-friends__search">
-            <label>
-                <span>Search friends</span>
-                <input type="text" ngModel placeholder="Search friends" #search="ngModel">
-            </label>
-            <button class="btn btn--purple">Search</button>
-        </div>
-        <div class="list-with-friends__list">
-            <div *ngIf="search.value.length == 0">
-                <h2>My Friends</h2>
-                <ul>
-                    <li *ngFor=" let friend of arrayFriends">
-                        <h3>{{friend}}</h3>
-                        <button class="btn btn--red">Romove friend</button>
-                    </li>
-                </ul>
-            </div>
-            <div *ngIf="search.value.length > 0">
-                <h2>Search Friend: {{search.value}}</h2>
-                <ul>
-                    <!-- <li *ngFor=" let friend of arrayFriends">
-                        <h3>{{friend}}</h3>
-                        <button class="btn btn--purple">Romove friend</button>
-                    </li> -->
-                </ul>
-            </div>
-        </div>
+  <div class="list-with-friends__container">
+    <div class="list-with-friends__title">
+      <h2>Friend</h2>
     </div>
+    <div class="list-with-friends__search">
+      <label>
+        <span>Search friends</span>
+        <input
+          type="text"
+          ngModel
+          placeholder="Search friends"
+          #search="ngModel"
+          (input)="searchFriends(search.value)"
+        />
+      </label>
+      <button class="btn btn--purple" (click)="search.reset()">Search</button>
+    </div>
+    <div class="list-with-friends__list">
+      <div *ngIf="search.value === ''">
+        <h2>My Friends</h2>
+        <ul>
+          <li *ngFor="let friend of myFriends$ | async">
+            <h3>{{ friend.user }}</h3>
+            <button class="btn btn--red" (click)="removeFriend(friend)">Romove friend</button>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="search.value !== ''">
+        <h2>Search Friend: {{ search.value }}</h2>
+        <ul>
+          <li *ngFor="let friend of allFriends">
+            <h3>{{ friend.user }}</h3>
+            <button *ngIf="friend.isFriend === true" class="btn btn--red" (click)="removeFriend(friend)">
+              Romove friend
+            </button>
+            <button *ngIf="friend.isFriend === false" class="btn btn--purple" (click)="addFriend(friend)">
+              Add friend
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
-
