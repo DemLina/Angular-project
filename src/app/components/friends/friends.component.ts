@@ -1,12 +1,10 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { arrFriends } from 'src/app/mocks/friends';
+import { users } from 'src/app/mocks/users';
 import { Friend } from 'src/app/models/friend.model';
-import { AppStateFriends } from 'src/app/models/state-friends.models';
-import { FriendServices } from 'src/app/services/friend.services';
-import { addFriend, removeFriend } from 'src/app/store/actions/friend.action';
-import { selectFriend } from 'src/app/store/selectors/friend.selectors';
+import { addFriend, removeFriend } from 'src/app/store/actions/user.action';
+import { selectFriends } from 'src/app/store/selectors/user.selectors';
+import { AppState } from '../../models/state-user.model';
 
 @Component({
   selector: 'app-friends',
@@ -15,35 +13,29 @@ import { selectFriend } from 'src/app/store/selectors/friend.selectors';
 })
 export class FriendsComponent implements OnInit {
   searchFriend!: Friend[];
-  cloneFriend = [...arrFriends];
-  myFriends$!: Observable<Array<Friend>>;
-  constructor(private store: Store<AppStateFriends>, private _friendService: FriendServices) {}
+  myFriends: Friend[] = [];
+
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.myFriends$ = this.store.select(selectFriend);
-    this._friendService.friends$.subscribe((friends: Friend[]) => {
-      this.searchFriend = friends;
+    this.store.select(selectFriends).subscribe((friends) => {
+      this.myFriends = friends || [];
     });
   }
 
-  addFriend(friend: Friend) {
-    for (let item of this.cloneFriend) {
-      if (item.user === friend.user) {
-        item.isFriend = true;
-      }
-    }
-    this.store.dispatch(addFriend({ friend: friend }));
-  }
-  removeFriend(friend: Friend) {
-    for (let item of this.cloneFriend) {
-      if (item.user === friend.user) {
-        item.isFriend = false;
-      }
-    }
-    this.store.dispatch(removeFriend({ friend: friend }));
+  addFriend(friend: Friend): void {
+    this.store.dispatch(addFriend({ friend: { ...friend } }));
   }
 
-  searchFriends(value: string) {
-    this._friendService.searchFriends(value);
+  removeFriend(friend: Friend): void {
+    this.store.dispatch(removeFriend({ friend: { ...friend } }));
+  }
+
+  searchFriends(value: string): void {
+    this.searchFriend = users.filter((item) => item.name.includes(value));
+  }
+
+  ifFriend(user: string): boolean {
+    return !!this.myFriends.find((item) => item.name === user);
   }
 }
