@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { User } from 'src/app/models/user.model';
-import { addUser, updateUser } from '../actions/user.action';
+import { addGame, addUser, updateUser } from '../actions/user.action';
 import { addFriend, removeFriend } from '../actions/user.action';
 import { Friend } from '../../models/friend.model';
 
@@ -57,5 +57,15 @@ export const userReducer = createReducer(
         friends: state.user.friends.filter((user: Friend) => user.name !== friend.name),
       },
     };
-  })
+  }),
+  on(addGame, (state, { game }) => {
+    console.log(state.user);
+    return {
+      ...state,
+      user: {
+        ...state.user,
+        games: [...state.user.games, game] as any,
+      },
+    };
+  }),
 );

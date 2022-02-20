@@ -1,0 +1,42 @@
+<app-header></app-header>
+<section class="list-cards-with-filters">
+    <div class="list-cards-with-filters__container">
+        <div class="list-cards-with-filters__title">
+            <h2>Games</h2>
+        </div>
+        <div class="list-cards-with-filters__search">
+          <label>
+            <span>Search friends</span>
+            <input type="text" placeholder="Search games" #search />
+          </label>
+        </div>
+        <h2>Featured Games</h2>
+        <div class="list-cards-with-filters__wrapper">
+            <div class="list-cards-with-filters__list">
+                <div *ngFor="let card of listCards">
+                    <div class="card">
+                        <div class="card__header">
+                            <div class="card__title">
+                                <h3>{{card.title}}</h3>
+                            </div>
+                            <div class="card__prize">
+                                {{card.prize}} UAH
+                            </div>
+                        </div>
+                        <div class="card__bottom">
+                            <p>
+                                {{card.text}}
+                            </p>
+                            <button class="card__btn btn btn--purple" (click) = 'addCard(card)'>
+                                Add to library
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-cards-with-filters__filters">
+
+            </div>
+        </div>
+    </div>
+</section>

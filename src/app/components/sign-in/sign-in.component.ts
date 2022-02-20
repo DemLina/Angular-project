@@ -40,7 +40,7 @@ export class SignInComponent implements OnInit {
         this.isLogin = true;
         this._authService.isAuth(this.isLogin);
         this.myRouter.navigateByUrl('/profile');
-        localStorage.setItem('login', 'true');
+        sessionStorage.setItem('login', 'true');
       } else {
         this.errorMessage = 'This user does not exist, enter the correct email';
       }

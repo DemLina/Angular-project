@@ -1,0 +1,43 @@
+.list-of-cards {
+padding: 12rem 2rem;
+  // .list-of-cards__container
+
+  &__container {    
+    max-width: 120rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 4px rgba(black, 0.2);
+    padding: 2.4rem 2rem;
+    border-radius: 5px;
+    @media (min-width: 576px) {
+      padding: 2.4rem 6rem;
+    }
+    h2 {
+      font-size: 28px;
+      color: black;
+    }
+  }
+  //.list-of-cards__empty
+
+  &__empty {
+    color: #6c69ff;
+    font-size: 2rem;
+    margin-top: 3rem;
+  }
+
+
+
+  // .list-of-cards__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 82rem;
+    width: 100%;
+    margin: 4rem auto 0;
+  }
+}
+

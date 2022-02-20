@@ -12,10 +12,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './services/auth.service';
-import { CardComponent } from './components/card/card.component';
+import { LibraryComponent } from './components/library/library.component';
+import { GamesComponent } from './components/games/games.component';
 
 @NgModule({
-  declarations: [AppComponent, SignInComponent, AdminPageComponent, HeaderComponent, FriendsComponent, CardComponent],
+  declarations: [AppComponent, SignInComponent, AdminPageComponent, HeaderComponent, FriendsComponent, LibraryComponent, GamesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

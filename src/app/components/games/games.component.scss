@@ -1,0 +1,73 @@
+.list-cards-with-filters {
+  padding: 12rem 2rem;
+// .list-cards-with-filters__container
+
+&__container {
+  max-width: 120rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 4px rgba(black, 0.2);
+  padding: 2.4rem 2rem;
+  border-radius: 5px;
+  @media (min-width: 576px) {
+    padding: 2.4rem 6rem;
+  }
+  h2 {
+    font-size: 28px;
+    color: black;
+  }
+}
+
+//.list-cards-with-filters__search
+&__search {
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+  @media (min-width: 576px) {
+    display: flex;
+  }
+  label {
+    width: 100%;
+    span {
+      display: block;
+      font-size: 1rem;
+    }
+    input {
+      width: 100%;
+      border: 1px solid black;
+      border-radius: 5px;
+      min-height: 35px;
+      padding: 8px 1rem;
+      box-sizing: border-box;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// .list-cards-with-filters__wrapper
+
+&__wrapper {
+    margin-top: 3.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+// .list-cards-with-filters__list
+
+&__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 82rem;
+  width: 100%;
+}
+
+// .list-cards-with-filters__filters
+
+&__filters {
+    max-width: 20rem;
+  width: 100%;
+}
+}

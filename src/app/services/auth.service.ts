@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  isLogin = Boolean(localStorage.getItem('login'));
+  isLogin = Boolean(sessionStorage.getItem('login'));
   constructor() {}
 
   isAuth(login: boolean) {
