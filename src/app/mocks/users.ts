@@ -2,7 +2,7 @@ import { Friend } from '../models/friend.model';
 
 export const users: Friend[] = [
   {
-    email: '',
+    email: 'lina@gmail.com',
     name: 'lina',
   },
   {

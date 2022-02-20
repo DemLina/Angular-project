@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,11 +10,25 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { userReducer } from './store/reducer/user.reducer';
 import { HeaderComponent } from './components/header/header.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
-  declarations: [AppComponent, SignInComponent, AdminPageComponent, HeaderComponent, FriendsComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, StoreModule.forRoot({ users: userReducer })],
-  providers: [],
+  declarations: [
+    AppComponent,
+    SignInComponent,
+    AdminPageComponent,
+    HeaderComponent,
+    FriendsComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    StoreModule.forRoot({ users: userReducer }),
+  ],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

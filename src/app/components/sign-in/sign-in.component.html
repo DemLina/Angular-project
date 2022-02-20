@@ -2,20 +2,20 @@
   <div class="input-form__container">
     <div class="input-form__form">
       <h2>Sign in</h2>
-      <form #myform="ngForm" (ngSubmit)="onSubmit(email)">
+      <form [formGroup]="signForm" (ngSubmit)="onSubmit(signForm.value); signForm.reset()">
+        <span *ngIf="errorMessage && !email?.value?.length && !password?.value?.length">{{errorMessage}}</span>
         <div class="input-form__field">
           <label for="email">Email</label>
           <input
             id="email"
             type="email"
             placeholder="Email"
-            ngModel
             name="email"
             required
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            #email="ngModel"
+            formControlName="email"
           />
-          <span *ngIf="email.invalid && email.value.length > 0">Please input correct email </span>
+          <span *ngIf="email?.invalid && email?.value?.length">Please input correct email </span>
         </div>
         <div class="input-form__field">
           <label for="password">Password</label>
@@ -23,15 +23,14 @@
             id="password"
             type="password"
             placeholder="Password"
-            ngModel
             name="password"
             required
             minlength="8"
-            #password="ngModel"
+            formControlName="password"
           />
-          <span *ngIf="password.invalid && password.value.length > 0">Please input more than 8 symbols</span>
+          <span *ngIf="password?.invalid && password?.value?.length">Please input more than 8 symbols</span>
         </div>
-        <button type="submit" class="btn btn--purple" [disabled]="myform.invalid">Sign in</button>
+        <button type="submit" class="btn btn--purple" [disabled]="signForm?.invalid">Sign in</button>
       </form>
     </div>
   </div>

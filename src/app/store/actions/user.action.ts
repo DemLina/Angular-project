@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { User } from 'src/app/models/user.model';
 import { Friend } from '../../models/friend.model';
 
-export const addUser = createAction('[USER] Add User', props<{ user: Partial<User> }>());
+export const addUser = createAction('[USER] Add User', props<{ user: User }>());
 
 export const updateUser = createAction('[USER] Update User', props<{ user: User }>());
 

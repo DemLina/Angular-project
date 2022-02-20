@@ -8,7 +8,7 @@ const initialState = {
   user: {
     email: '',
     name: '',
-    age: null,
+    age: 0,
     friends: [],
     games: [],
   },
@@ -18,21 +18,28 @@ export interface State {
 }
 export const userReducer = createReducer(
   initialState,
-  // on(addUser, (state, { user }) => {
-  //   console.log(state, user);
-  //   return {
-  //     ...state,
-  //     users: [...state.users, user] as any,
-  //   };
-  // }),
-  // on(updateUser, (state, { user }) => {
-  //   console.log(state, user);
-  //   let newState = state.users.filter((item: User) => item.email !== user.email);
-  //   return {
-  //     users: [newState, user] as any,
-  //   };
-  // }),
+  on(addUser, (state, { user }) => {
+    console.log(state.user)
+    let addEmail = {...state.user}
+    addEmail.email = user.email
+    return {
+      ...state,
+      user: {...addEmail} as any,
+    };
+  }),
+  on(updateUser, (state, { user }) => {
+    console.log(state.user)
+    let newObj = {...state.user};
+    newObj.email = user.email;
+    newObj.age = user.age;
+    newObj.name = user.name;
+    return {
+      ...state,
+      user: {...newObj} as any
+    };
+  }),
   on(addFriend, (state, { friend }) => {
+    console.log(state.user)
     return {
       ...state,
       user: {
@@ -42,6 +49,7 @@ export const userReducer = createReducer(
     };
   }),
   on(removeFriend, (state, { friend }) => {
+    console.log(state.user)
     return {
       ...state,
       user: {
