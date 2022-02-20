@@ -14,9 +14,7 @@ import { selectUser } from 'src/app/store/selectors/user.selectors';
 export class AdminPageComponent implements OnInit {
   user!: User;
   adminForm!: FormGroup;
-  constructor(private store: Store<AppState>) {
-    
-  }
+  constructor(private store: Store<AppState>) {}
   ngOnInit(): void {
     this.store.select(selectUser).subscribe((users) => {
       this.user = users || {};
@@ -27,8 +25,12 @@ export class AdminPageComponent implements OnInit {
       age: new FormControl(this.user.age),
     });
   }
-  get name() { return this.adminForm.get('name'); }
-  get email() { return this.adminForm.get('email'); }
+  get name() {
+    return this.adminForm.get('name');
+  }
+  get email() {
+    return this.adminForm.get('email');
+  }
 
   onSubmit(form: User) {
     this.store.dispatch(updateUser({ user: form }));

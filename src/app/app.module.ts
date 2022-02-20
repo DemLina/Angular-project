@@ -12,15 +12,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './services/auth.service';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignInComponent,
-    AdminPageComponent,
-    HeaderComponent,
-    FriendsComponent,
-  ],
+  declarations: [AppComponent, SignInComponent, AdminPageComponent, HeaderComponent, FriendsComponent, CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

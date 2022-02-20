@@ -3,7 +3,7 @@
     <div class="input-form__form">
       <h2>Sign in</h2>
       <form [formGroup]="signForm" (ngSubmit)="onSubmit(signForm.value); signForm.reset()">
-        <span *ngIf="errorMessage && !email?.value?.length && !password?.value?.length">{{errorMessage}}</span>
+        <span *ngIf="errorMessage && !email?.value?.length && !password?.value?.length">{{ errorMessage }}</span>
         <div class="input-form__field">
           <label for="email">Email</label>
           <input

@@ -15,8 +15,19 @@
     padding: 0 20px;
     margin: 0 auto;
     box-sizing: border-box;
+    @media(min-width: 576px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  //.header__logo-and-nav
+
+  &__logo-and-nav {
     display: flex;
     align-items: center;
+
   }
 
   // .header__logo
@@ -62,5 +73,12 @@
         }
       }
     }
+  }
+
+  //.header__logout
+
+  &__logout {
+    display: flex;
+    justify-content: flex-end;
   }
 }

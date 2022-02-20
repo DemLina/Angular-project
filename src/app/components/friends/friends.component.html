@@ -13,6 +13,9 @@
     <div class="list-with-friends__list">
       <div *ngIf="!search.value?.length">
         <h2>My Friends</h2>
+        <div *ngIf="!myFriends.length" class="list-with-friends__empty">
+          Sorry, you have no friends. Find new friends in the top search form!!!
+        </div>
         <ul>
           <li *ngFor="let friend of myFriends">
             <h3>{{ friend.name }}</h3>
@@ -22,6 +25,9 @@
       </div>
       <div *ngIf="search.value?.length">
         <h2>Search Friend: {{ search.value }}</h2>
+        <div *ngIf="!searchFriend.length" class="list-with-friends__empty">
+            There are no friends on your request
+        </div>
         <ul>
           <li *ngFor="let friend of searchFriend">
             <h3>{{ friend.name }}</h3>

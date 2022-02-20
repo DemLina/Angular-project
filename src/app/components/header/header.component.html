@@ -1,15 +1,20 @@
 <header class="header">
   <div class="header__container container">
-    <div class="header__logo">
-      <img src="assets/img/logo.svg" alt="img" />
+    <div class="header__logo-and-nav">
+      <div class="header__logo">
+        <img src="assets/img/logo.svg" alt="img" />
+      </div>
+      <div class="header__nav">
+        <ul>
+          <li><a routerLink="/games" routerLinkActive="active-router">Games</a></li>
+          <li><a routerLink="/library" routerLinkActive="active-router">Library</a></li>
+          <li><a routerLink="/friends" routerLinkActive="active-router">Friends</a></li>
+          <li><a routerLink="/profile" routerLinkActive="active-router">Profile</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="header__nav">
-      <ul>
-        <li><a routerLink="/games" routerLinkActive="active-router">Games</a></li>
-        <li><a routerLink="/library" routerLinkActive="active-router">Library</a></li>
-        <li><a routerLink="/friends" routerLinkActive="active-router">Friends</a></li>
-        <li><a routerLink="/profile" routerLinkActive="active-router">Profile</a></li>
-      </ul>
+    <div class="header__logout">
+      <button class="btn btn--purple" (click)="logOut()">Log out</button>
     </div>
   </div>
 </header>

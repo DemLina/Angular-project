@@ -3,16 +3,11 @@
   <div class="input-form__container">
     <div class="input-form__form">
       <h2>Profile</h2>
-      <form [formGroup]="adminForm" (ngSubmit)="onSubmit(adminForm.value) ">
+      <form [formGroup]="adminForm" (ngSubmit)="onSubmit(adminForm.value)">
         <div class="input-form__field">
           <label for="name">Username</label>
-          <input 
-          type="text" 
-          placeholder="Username" 
-          name="name" 
-          formControlName="name"
-          id="name" required  />
-          <span  *ngIf="name?.invalid && name?.value.length"> Name must be at least 4 characters long.</span>
+          <input type="text" placeholder="Username" name="name" formControlName="name" id="name" required />
+          <span *ngIf="name?.invalid && name?.value.length"> Name must be at least 4 characters long.</span>
         </div>
         <div class="input-form__field">
           <label for="email">Email</label>
@@ -24,18 +19,11 @@
             required
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
           />
-          <span  *ngIf="email?.invalid && email?.value.length">This is not email</span>
+          <span *ngIf="email?.invalid && email?.value.length">This is not email</span>
         </div>
         <div class="input-form__field">
           <label for="age">Age</label>
-          <input 
-          type="number" 
-          placeholder="Age" 
-          name="age" 
-          required  
-          min="0"
-          formControlName="age"
-          />
+          <input type="number" placeholder="Age" name="age" required min="0" formControlName="age" />
         </div>
         <button type="submit" class="btn btn--purple" [disabled]="adminForm.invalid">Save</button>
       </form>

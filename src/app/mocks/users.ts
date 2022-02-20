@@ -6,35 +6,35 @@ export const users: Friend[] = [
     name: 'lina',
   },
   {
-    email: '',
+    email: 'kevin@gmail.com',
     name: 'kevin',
   },
   {
-    email: '',
+    email: 'kate@gmail.com',
     name: 'kate',
   },
   {
-    email: '',
+    email: 'mike34@gmail.com',
     name: 'mike34',
   },
   {
-    email: '',
+    email: 'mikeLarge@gmail.com',
     name: 'mikeLarge',
   },
   {
-    email: '',
+    email: 'nick123@gmail.com',
     name: 'nick123',
   },
   {
-    email: '',
+    email: 'unckle@gmail.com',
     name: 'unckle',
   },
   {
-    email: '',
+    email: 'anonim@gmail.com',
     name: 'anonim',
   },
   {
-    email: '',
+    email: 'anonim45@gmail.com',
     name: 'anonim45',
   },
 ];

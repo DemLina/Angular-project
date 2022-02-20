@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  isLogin!: boolean
-  constructor() { }
+  isLogin = Boolean(localStorage.getItem('login'));
+  constructor() {}
 
   isAuth(login: boolean) {
-    return this.isLogin = login
+    return (this.isLogin = login);
   }
-
 }

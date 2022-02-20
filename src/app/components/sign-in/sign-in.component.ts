@@ -13,34 +13,37 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent implements OnInit{
+export class SignInComponent implements OnInit {
   signForm!: FormGroup;
   isLogin!: boolean;
   errorMessage!: string;
   constructor(private myRouter: Router, private store: Store<AppState>, private _authService: AuthService) {}
 
   ngOnInit(): void {
-  this.signForm = new FormGroup({
-    email: new FormControl('', Validators.email),
-    password: new FormControl('', Validators.minLength(6)),
-  });
+    this.signForm = new FormGroup({
+      email: new FormControl('', Validators.email),
+      password: new FormControl('', Validators.minLength(6)),
+    });
   }
 
-  get password() { return this.signForm.get('password'); }
-  get email() { return this.signForm.get('email'); }
+  get password() {
+    return this.signForm.get('password');
+  }
+  get email() {
+    return this.signForm.get('email');
+  }
 
   onSubmit(form: User) {
-    for( let user of users) {
-      if(form.email == user.email) {
-        this.store.dispatch(addUser({ user: form}));
+    for (let user of users) {
+      if (form.email == user.email) {
+        this.store.dispatch(addUser({ user: form }));
         this.isLogin = true;
-        this._authService.isAuth(this.isLogin)
+        this._authService.isAuth(this.isLogin);
         this.myRouter.navigateByUrl('/profile');
+        localStorage.setItem('login', 'true');
       } else {
-        this.errorMessage = "This user does not exist, enter the correct email"
-        
+        this.errorMessage = 'This user does not exist, enter the correct email';
       }
-
     }
   }
 }
