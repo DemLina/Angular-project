@@ -1,6 +1,6 @@
 export interface Game {
-    title: string,
-    prize: number,
-    text: string,
-    tag: string
+  title: string;
+  price: number;
+  text: string;
+  tag: string;
 }

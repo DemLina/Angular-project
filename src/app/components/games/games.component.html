@@ -5,37 +5,63 @@
             <h2>Games</h2>
         </div>
         <div class="list-cards-with-filters__search">
-          <label>
-            <span>Search friends</span>
-            <input type="text" placeholder="Search games" #search />
-          </label>
+            <label>
+                <span>Search friends</span>
+                <input type="text" placeholder="Search games" #search (input)="searchGames(search.value)"/>
+            </label>
         </div>
         <h2>Featured Games</h2>
         <div class="list-cards-with-filters__wrapper">
+            <div class="list-cards-with-filters__filters">
+                <h3>Fipter by price</h3>
+                <div class="list-cards-with-filters__range">
+                    <input type="range" class="range" max="{{maxRange}}" min="{{minRange}}"  #range (change)="filterByPrice(range.value)">
+                </div>
+                <h3>Fipter by tags</h3>
+                <div class="list-cards-with-filters__checkbox">
+                    <div class="list-cards-with-filters__checkbox-item">
+
+                        <input type="checkbox" value="indie" name="check" id="indie" #indie (change)="filterByTag(indie.value)">
+                        <label for="indie">Indie</label>
+
+                    </div>
+                    <div class="list-cards-with-filters__checkbox-item">
+                        <input type="checkbox" name="check" id="action" value="action" #action (change)="filterByTag(action.value)">
+                        <label for="action">
+                            Action
+                        </label>
+
+                    </div>
+                    <div class="list-cards-with-filters__checkbox-item" >
+                        <input type="checkbox" name="check" id="adventure" value="adventure" #adventure (change)="filterByTag(adventure.value)">
+                        <label for="adventure">
+                            Adventure
+                        </label>
+
+                    </div>
+                </div>
+            </div>
             <div class="list-cards-with-filters__list">
-                <div *ngFor="let card of listCards">
+                <div *ngFor="let card of filteredCards">
                     <div class="card">
                         <div class="card__header">
                             <div class="card__title">
                                 <h3>{{card.title}}</h3>
                             </div>
-                            <div class="card__prize">
-                                {{card.prize}} UAH
+                            <div class="card__price">
+                                {{card.price}} UAH
                             </div>
                         </div>
                         <div class="card__bottom">
                             <p>
                                 {{card.text}}
                             </p>
-                            <button class="card__btn btn btn--purple" (click) = 'addCard(card)'>
+                            <button class="card__btn btn btn--purple" (click)='addCard(card)'>
                                 Add to library
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="list-cards-with-filters__filters">
-
             </div>
         </div>
     </div>

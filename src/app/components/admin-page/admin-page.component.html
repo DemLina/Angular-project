@@ -7,7 +7,7 @@
         <div class="input-form__field">
           <label for="name">Username</label>
           <input type="text" placeholder="Username" name="name" formControlName="name" id="name" required />
-          <span *ngIf="name?.invalid && name?.value.length"> Name must be at least 4 characters long.</span>
+          <span *ngIf="name?.invalid && name?.value"> Name must be at least 4 characters long.</span>
         </div>
         <div class="input-form__field">
           <label for="email">Email</label>
@@ -19,7 +19,7 @@
             required
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
           />
-          <span *ngIf="email?.invalid && email?.value.length">This is not email</span>
+          <span *ngIf="email?.invalid && email?.value">This is not email</span>
         </div>
         <div class="input-form__field">
           <label for="age">Age</label>

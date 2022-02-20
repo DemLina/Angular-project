@@ -1,73 +1,152 @@
 .list-cards-with-filters {
   padding: 12rem 2rem;
-// .list-cards-with-filters__container
+  // .list-cards-with-filters__container
 
-&__container {
-  max-width: 120rem;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0 auto;
-  background: white;
-  box-shadow: 0 0 4px rgba(black, 0.2);
-  padding: 2.4rem 2rem;
-  border-radius: 5px;
-  @media (min-width: 576px) {
-    padding: 2.4rem 6rem;
-  }
-  h2 {
-    font-size: 28px;
-    color: black;
-  }
-}
-
-//.list-cards-with-filters__search
-&__search {
-  margin-top: 3rem;
-  margin-bottom: 2.5rem;
-  @media (min-width: 576px) {
-    display: flex;
-  }
-  label {
+  &__container {
+    max-width: 120rem;
     width: 100%;
-    span {
-      display: block;
-      font-size: 1rem;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 4px rgba(black, 0.2);
+    padding: 2.4rem 2rem;
+    border-radius: 5px;
+    @media (min-width: 768px) {
+      padding: 2.4rem 6rem;
     }
+    h2 {
+      font-size: 28px;
+      color: black;
+    }
+  }
+
+  //.list-cards-with-filters__search
+  &__search {
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+    @media (min-width: 576px) {
+      display: flex;
+    }
+    label {
+      width: 100%;
+      span {
+        display: block;
+        font-size: 1rem;
+      }
+      input {
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 5px;
+        min-height: 35px;
+        padding: 8px 1rem;
+        box-sizing: border-box;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  // .list-cards-with-filters__wrapper
+
+  &__wrapper {
+    margin-top: 3.5rem;
+    @media (min-width: 576px) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+    }
+  }
+
+  // .list-cards-with-filters__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    max-width: 82rem;
+    width: 100%;
+    margin-top: 3rem;
+    @media (min-width: 576px) {
+      margin-top: 0;
+    }
+    @media(min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media(min-width: 1025px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // .list-cards-with-filters__filters
+
+  &__filters {
+    max-width: 20rem;
+    width: 100%;
+    @media (min-width: 576px) {
+      margin-left: 2rem;
+    }
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  // .list-cards-with-filters__range
+
+  &__range {
+    margin-bottom: 3rem;
     input {
       width: 100%;
-      border: 1px solid black;
-      border-radius: 5px;
-      min-height: 35px;
-      padding: 8px 1rem;
-      box-sizing: border-box;
-      font-size: 1.5rem;
     }
   }
-}
 
-// .list-cards-with-filters__wrapper
+  // .list-cards-with-filters__checkbox
 
-&__wrapper {
-    margin-top: 3.5rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
+  &__checkbox {
+  }
 
-// .list-cards-with-filters__list
+  // .list-cards-with-filters__checkbox-item
 
-&__list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 82rem;
-  width: 100%;
-}
-
-// .list-cards-with-filters__filters
-
-&__filters {
-    max-width: 20rem;
-  width: 100%;
-}
+  &__checkbox-item {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    input {
+      display: none;
+      &:checked + label {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    label {
+      font-size: 1.4rem;
+      padding-left: 3rem;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        width: 2rem;
+        height: 2rem;
+        border: 0.5px solid #000000;
+        border-radius: 5px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        box-sizing: border-box;
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        width: 1rem;
+        height: 1rem;
+        background-color: #6C69FF;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: .3s all;
+      }
+    }
+  }
 }

@@ -41,6 +41,7 @@ export class FriendsComponent implements OnInit {
   }
 
   ifFriend(user: string): boolean {
+    console.log(this.myFriends.length)
     return !!this.myFriends.find((item) => {
       item.name === user && item.email != this.user.email
     });

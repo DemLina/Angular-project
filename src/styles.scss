@@ -4,7 +4,7 @@
 }
 html {
   font-size: 62.5%;
-  font-family: "Roboto";
+  font-family: 'Roboto';
 }
 body {
   min-height: 100vh;
@@ -21,15 +21,21 @@ body {
   padding: 10px;
   box-sizing: border-box;
   transition: 0.3s opacity;
+  text-decoration: none;
+  font-size: 1.4rem;
   &--purple {
     background: #6c69ff;
     color: white;
-
   }
   &--red {
-    background: #FF6F6F;
+    background: #ff6f6f;
   }
-} 
+  &--white {
+    background-color: white;
+    color: #6c69ff;
+    box-shadow: 0 0 4px rgba(black, .2);
+  }
+}
 .input-form {
   width: 100%;
   min-height: 100vh;
@@ -109,56 +115,64 @@ body {
 
 .card {
   border-radius: 5px;
-  box-shadow: 0 0 4px rgba(black, .2);
+  box-shadow: 0 0 4px rgba(black, 0.2);
   background-color: white;
   // .card__header
 
   &__header {
-      background-color: rgb(172, 163, 211);
-      color: white;
-      min-height: 15rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1rem;
-      box-sizing: border-box;
+    background-color: rgb(172, 163, 211);
+    color: white;
+    min-height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
   }
 
   // .card__title
 
   &__title {
-      h3 {
-          font-size: 2.4rem;
-          font-weight: 500;
-      }
+    h3 {
+      font-size: 2.4rem;
+      font-weight: 500;
+    }
   }
 
-  // .card__prize
+  // .card__price
 
-  &__prize {
-      margin-top: 1rem;
-      text-align: end;
-      font-size: 2.4rem;
-
+  &__price {
+    margin-top: 1rem;
+    text-align: end;
+    font-size: 2.4rem;
   }
 
   // .card__bottom
 
   &__bottom {
-      padding: 1rem;
-      box-sizing: border-box;
-      p {
-          color: black;
-          font-size: 1.4rem;
-          font-weight: normal;
-      }
+    padding: 1rem;
+    box-sizing: border-box;
+    p {
+      color: black;
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
   }
 
   // .card__btn
 
   &__btn {
-      margin-top: 1rem;
-      width: 100%;
+    margin-top: 1rem;
+    width: 100%;
+  }
 
+  // .card__btns
+
+  &__btns {
+    margin-top: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
   }
 }

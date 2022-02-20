@@ -3,7 +3,7 @@ import { Game } from './game.model';
 
 export interface User {
   email: string;
-  age: number;
+  age: number | null;
   name: string;
   friends: Friend[];
   games: Game[];
