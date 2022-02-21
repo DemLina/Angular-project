@@ -19,27 +19,26 @@ export interface State {
 export const userReducer = createReducer(
   initialState,
   on(addUser, (state, { user }) => {
-    console.log(state.user);
     return {
       ...state,
-      user: { 
+      user: {
+        ...state.user,
         email: user.email,
-       } as any,
+      } as any,
     };
   }),
   on(updateUser, (state, { user }) => {
-    console.log(state.user);
     return {
       ...state,
-      user: { 
+      user: {
+        ...state.user,
         email: user.email,
         age: user.age,
         name: user.name,
-       } as any,
+      } as any,
     };
   }),
   on(addFriend, (state, { friend }) => {
-    console.log(state.user);
     return {
       ...state,
       user: {
@@ -49,7 +48,6 @@ export const userReducer = createReducer(
     };
   }),
   on(removeFriend, (state, { friend }) => {
-    console.log(state.user);
     return {
       ...state,
       user: {
@@ -58,8 +56,7 @@ export const userReducer = createReducer(
       },
     };
   }),
-  on(addGame, (state, { game }) => { 
-    console.log(state.user);
+  on(addGame, (state, { game }) => {
     return {
       ...state,
       user: {
@@ -67,5 +64,5 @@ export const userReducer = createReducer(
         games: [...state.user.games, game] as any,
       },
     };
-  }),
+  })
 );

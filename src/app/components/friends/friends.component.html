@@ -25,16 +25,20 @@
       </div>
       <div *ngIf="search.value?.length">
         <h2>Search Friend: {{ search.value }}</h2>
-        <div *ngIf="!searchFriend.length" class="list-with-friends__empty">
-            There are no friends on your request
-        </div>
+        <div *ngIf="!searchFriend.length" class="list-with-friends__empty">There are no friends on your request</div>
         <ul>
           <li *ngFor="let friend of searchFriend">
             <h3>{{ friend.name }}</h3>
             <button *ngIf="ifFriend(friend.name)" class="btn btn--red" (click)="removeFriend(friend)">
               Remove friend
             </button>
-            <button *ngIf="!ifFriend(friend.name)" class="btn btn--purple" (click)="addFriend(friend)">
+            <button
+              *ngIf="!ifFriend(friend.name)"
+              mat-stroked-button
+              (click)="openSnackBar('Friend added', 'THANKS !!!!!')"
+              class="btn btn--purple"
+              (click)="addFriend(friend)"
+            >
               Add friend
             </button>
           </li>

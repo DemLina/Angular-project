@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { users } from 'src/app/mocks/users';
 import { Friend } from 'src/app/models/friend.model';
@@ -15,9 +16,9 @@ import { AppState } from '../../models/state-user.model';
 export class FriendsComponent implements OnInit {
   searchFriend!: Friend[];
   myFriends: Friend[] = [];
-  user!: User
+  user!: User;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.store.select(selectUser).subscribe((users) => {
@@ -25,6 +26,12 @@ export class FriendsComponent implements OnInit {
     });
     this.store.select(selectFriends).subscribe((friends) => {
       this.myFriends = friends || [];
+    });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
     });
   }
 
@@ -41,9 +48,6 @@ export class FriendsComponent implements OnInit {
   }
 
   ifFriend(user: string): boolean {
-    console.log(this.myFriends.length)
-    return !!this.myFriends.find((item) => {
-      item.name === user && item.email != this.user.email
-    });
+    return !!this.myFriends.find((item) => item.name === user);
   }
 }

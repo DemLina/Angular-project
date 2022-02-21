@@ -17,13 +17,14 @@
             placeholder="Email"
             name="email"
             required
+            id="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
           />
           <span *ngIf="email?.invalid && email?.value">This is not email</span>
         </div>
         <div class="input-form__field">
           <label for="age">Age</label>
-          <input type="number" placeholder="Age" name="age" required min="0" formControlName="age" />
+          <input type="number" placeholder="Age" name="age" required min="0" id="age" formControlName="age" />
         </div>
         <button type="submit" class="btn btn--purple" [disabled]="adminForm.invalid">Save</button>
       </form>

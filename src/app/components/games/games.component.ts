@@ -1,12 +1,12 @@
-import { LowerCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Game } from 'src/app/models/game.model';
 import { AppState } from 'src/app/models/state-user.model';
 import { addGame } from 'src/app/store/actions/user.action';
 import { selectGames } from 'src/app/store/selectors/user.selectors';
 import { games } from '../../mocks/games';
+import { MDCSnackbar } from '@material/snackbar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-games',
@@ -23,17 +23,22 @@ export class GamesComponent implements OnInit {
     tags: [],
     price: 0,
   };
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.store.select(selectGames).subscribe((items) => {
-      this.listCards = games.filter((item) => !items.includes(item));
+      this.listCards = games.filter((item) => !items?.includes(item));
       this.filteredCards = [...this.listCards];
     });
     for (let i = 1; i < games.length; ++i) {
       if (games[i].price > this.maxRange) this.maxRange = games[i].price;
       if (games[i].price < this.minRange) this.minRange = games[i].price;
     }
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   addCard(card: Game) {

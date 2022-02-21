@@ -10,19 +10,31 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { userReducer } from './store/reducer/user.reducer';
 import { HeaderComponent } from './components/header/header.component';
 import { FriendsComponent } from './components/friends/friends.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
 import { LibraryComponent } from './components/library/library.component';
 import { GamesComponent } from './components/games/games.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [AppComponent, SignInComponent, AdminPageComponent, HeaderComponent, FriendsComponent, LibraryComponent, GamesComponent],
+  declarations: [
+    AppComponent,
+    SignInComponent,
+    AdminPageComponent,
+    HeaderComponent,
+    FriendsComponent,
+    LibraryComponent,
+    GamesComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     StoreModule.forRoot({ users: userReducer }),
+    BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],

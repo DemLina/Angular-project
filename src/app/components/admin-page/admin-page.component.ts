@@ -16,8 +16,8 @@ export class AdminPageComponent implements OnInit {
   adminForm!: FormGroup;
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {
-    this.store.select(selectUser).subscribe((users) => {
-      this.user = users || {};
+    this.store.select(selectUser).subscribe((user) => {
+      this.user = user || {};
     });
     this.adminForm = new FormGroup({
       email: new FormControl(this.user.email, Validators.email),

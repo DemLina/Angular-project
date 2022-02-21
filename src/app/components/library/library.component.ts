@@ -7,16 +7,15 @@ import { selectGames } from 'src/app/store/selectors/user.selectors';
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
-  styleUrls: ['./library.component.scss']
+  styleUrls: ['./library.component.scss'],
 })
 export class LibraryComponent implements OnInit {
   myGames: Game[] = [];
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.store.select(selectGames).subscribe((games) => {
-      this.myGames = games
+      this.myGames = games;
     });
   }
-
 }

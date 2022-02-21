@@ -11,4 +11,4 @@ export const addFriend = createAction('[USER] Add Friend', props<{ friend: Frien
 
 export const removeFriend = createAction('[USER] Remove Friend', props<{ friend: Friend }>());
 
-export const addGame = createAction('[USER] Add Game', props<{ game: Game}>());
+export const addGame = createAction('[USER] Add Game', props<{ game: Game }>());
