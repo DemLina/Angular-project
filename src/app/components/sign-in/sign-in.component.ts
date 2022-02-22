@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { addUser } from 'src/app/store/actions/user.action';
+import { addUser, updateUser } from 'src/app/store/actions/user.action';
 import { AppState } from 'src/app/models/state-user.model';
 import { User } from 'src/app/models/user.model';
 import { users } from 'src/app/mocks/users';
@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
+  userStore!: User;
   signForm!: FormGroup;
   isLogin!: boolean;
   errorMessage!: string;
@@ -45,5 +46,6 @@ export class SignInComponent implements OnInit {
         this.errorMessage = 'This user does not exist, enter the correct email';
       }
     }
+    
   }
 }

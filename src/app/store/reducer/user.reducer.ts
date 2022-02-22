@@ -28,13 +28,12 @@ export const userReducer = createReducer(
     };
   }),
   on(updateUser, (state, { user }) => {
+    console.log(user)
     return {
       ...state,
       user: {
         ...state.user,
-        email: user.email,
-        age: user.age,
-        name: user.name,
+        ...user
       } as any,
     };
   }),

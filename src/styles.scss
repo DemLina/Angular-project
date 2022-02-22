@@ -44,6 +44,14 @@ body {
   justify-content: center;
   padding: 5rem 2rem;
   box-sizing: border-box;
+
+  //.input-form__error
+
+  &__error {
+    position: relative;
+    margin-top: 1rem;
+    min-height: 2rem;
+  }
   // .input-form__form
 
   &__form {
