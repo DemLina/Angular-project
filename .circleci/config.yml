@@ -47,5 +47,3 @@ command: NODE_ENV=production yarn build
 name: Deploy 
 
 command: yarn deploy 
-env:
-- SURGE_TOKEN: ${{aeee291feab7bfb84edd6fcbb0bf6671}}
