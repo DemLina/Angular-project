@@ -8,9 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "lint:fix": "ng lint --fix",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod"
+    "lint:fix": "ng lint --fix"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +50,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "surge": "^0.23.1",
     "typescript": "~4.5.2"
   }
 }
