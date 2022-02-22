@@ -1,4 +1,4 @@
-version: 2.1 
+version: 3
 
 jobs: 
 
@@ -48,4 +48,4 @@ name: Deploy
 
 command: yarn deploy 
 env:
-SURGE_TOKEN: ${{aeee291feab7bfb84edd6fcbb0bf6671}}
+- SURGE_TOKEN: ${{aeee291feab7bfb84edd6fcbb0bf6671}}
