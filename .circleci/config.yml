@@ -1,4 +1,4 @@
-version: 3.1 
+version: 1 
 
 jobs: 
 
@@ -28,7 +28,7 @@ name: Install Dependencies
 
 command: NODE_ENV=development yarn --frozen-lockfile 
 
-- save_cache: 
+save_cache: 
 
 key: dependency-cache-v1-{{ checksum "yarn.lock" }} 
 
