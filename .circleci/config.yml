@@ -1,49 +1,29 @@
-version: 3
+version: 2.1
 
-jobs: 
+# Define the jobs we want to run for this project
+jobs:
+  build:
+    docker:
+      - image: cimg/<language>:<version TAG>
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run: echo "this is the build job"
+  test:
+    docker:
+      - image: cimg/<language>:<version TAG>
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run: echo "this is the test job"
 
-build: 
-
-working_directory: ~/repo 
-
-docker: 
-
-- image: circleci/node:14 
-
-steps: 
-
-- checkout 
-
-- restore_cache: 
-
-keys: 
-
-- dependency-cache-v1-{{ checksum "yarn.lock" }} 
-
-- dependency-cache-v1- 
-
-- run: 
-
-name: Install Dependencies 
-
-command: NODE_ENV=development yarn --frozen-lockfile 
-
-- save_cache: 
-
-key: dependency-cache-v1-{{ checksum "yarn.lock" }} 
-
-paths: 
-
-- ./node_modules 
-
-- run: 
-
-name: Build 
-
-command: NODE_ENV=production yarn build 
-
-- run: 
-
-name: Deploy 
-
-command: yarn deploy 
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test
