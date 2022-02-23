@@ -29,7 +29,7 @@ export class FriendsComponent implements OnInit {
     });
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string): void {
     this._snackBar.open(message, action, {
       duration: 2000,
     });

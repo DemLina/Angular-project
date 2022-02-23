@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { addUser, updateUser } from 'src/app/store/actions/user.action';
@@ -18,6 +18,7 @@ export class SignInComponent implements OnInit {
   signForm!: FormGroup;
   isLogin!: boolean;
   errorMessage!: string;
+
   constructor(private myRouter: Router, private store: Store<AppState>, private _authService: AuthService) {}
 
   ngOnInit(): void {
@@ -27,14 +28,14 @@ export class SignInComponent implements OnInit {
     });
   }
 
-  get password() {
+  get password(): AbstractControl | null {
     return this.signForm.get('password');
   }
-  get email() {
+  get email(): AbstractControl | null {
     return this.signForm.get('email');
   }
 
-  onSubmit(form: User) {
+  onSubmit(form: User): void {
     for (let user of users) {
       if (form.email == user.email) {
         this.store.dispatch(addUser({ user: form }));

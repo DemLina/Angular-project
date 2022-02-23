@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent {
   constructor(private myRouter: Router, private _auth: AuthService) {}
 
-  logOut() {
+  logOut(): void {
     localStorage.removeItem('userStorage');
     sessionStorage.removeItem('login');
     this.myRouter.navigateByUrl('/login');

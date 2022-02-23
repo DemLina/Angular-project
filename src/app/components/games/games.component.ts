@@ -18,11 +18,13 @@ export class GamesComponent implements OnInit {
   filteredCards: Game[] = [];
   minRange = games[0].price;
   maxRange = this.minRange;
+
   filters: Filter = {
     search: '',
     tags: [],
     price: 0,
   };
+
   constructor(private store: Store<AppState>, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
@@ -30,18 +32,20 @@ export class GamesComponent implements OnInit {
       this.listCards = games.filter((item) => !items?.includes(item));
       this.filteredCards = [...this.listCards];
     });
+
     for (let i = 1; i < games.length; ++i) {
       if (games[i].price > this.maxRange) this.maxRange = games[i].price;
       if (games[i].price < this.minRange) this.minRange = games[i].price;
     }
   }
-  openSnackBar(message: string, action: string) {
+
+  openSnackBar(message: string, action: string): void {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
   }
 
-  addCard(card: Game) {
+  addCard(card: Game): void {
     this.store.dispatch(addGame({ game: card }));
   }
 
@@ -58,12 +62,13 @@ export class GamesComponent implements OnInit {
     }
     this.filterCards();
   }
+
   filterByPrice(value: string): void {
     this.filters.price = +value;
     this.filterCards();
   }
 
-  filterCards() {
+  filterCards(): void {
     this.filteredCards = this.listCards.filter((item) => {
       if (!item.title.includes(this.filters.search)) {
         return false;
@@ -76,6 +81,5 @@ export class GamesComponent implements OnInit {
       }
       return true;
     });
-    console.log(this.filteredCards);
   }
 }

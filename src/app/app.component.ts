@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './models/state-user.model';
 import { User } from './models/user.model';
@@ -14,12 +14,12 @@ export class AppComponent implements OnInit {
   userStore!: User;
   user!: User;
   @HostListener('window:beforeunload')
-  doSomething() {
+  addLocalStorage() {
     this.store.select(selectUser).subscribe((user) => {
-      console.log(user);
       localStorage.setItem('userStorage', JSON.stringify(user));
     });
   }
+
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {

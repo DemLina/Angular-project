@@ -19,7 +19,14 @@
         <ul>
           <li *ngFor="let friend of myFriends">
             <h3>{{ friend.name }}</h3>
-            <button class="btn btn--red" mat-stroked-button (click)="openSnackBar('Friend removed', 'THANKS !!!!!')" (click)="removeFriend(friend)">Remove friend</button>
+            <button
+              class="btn btn--red"
+              mat-stroked-button
+              (click)="openSnackBar('Friend removed', 'THANKS !!!!!')"
+              (click)="removeFriend(friend)"
+            >
+              Remove friend
+            </button>
           </li>
         </ul>
       </div>
@@ -29,7 +36,13 @@
         <ul>
           <li *ngFor="let friend of searchFriend">
             <h3>{{ friend.name }}</h3>
-            <button *ngIf="ifFriend(friend.name)" mat-stroked-button (click)="openSnackBar('Friend removed', 'THANKS !!!!!')" class="btn btn--red" (click)="removeFriend(friend)">
+            <button
+              *ngIf="ifFriend(friend.name)"
+              mat-stroked-button
+              (click)="openSnackBar('Friend removed', 'THANKS !!!!!')"
+              class="btn btn--red"
+              (click)="removeFriend(friend)"
+            >
               Remove friend
             </button>
             <button

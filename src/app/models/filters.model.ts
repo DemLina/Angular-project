@@ -1,5 +1,5 @@
 export interface Filter {
   search: string;
-  tags: Array<string>;
+  tags: string[];
   price: number;
 }

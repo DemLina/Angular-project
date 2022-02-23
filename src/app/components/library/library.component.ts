@@ -11,6 +11,7 @@ import { selectGames } from 'src/app/store/selectors/user.selectors';
 })
 export class LibraryComponent implements OnInit {
   myGames: Game[] = [];
+
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {

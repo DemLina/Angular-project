@@ -13,9 +13,11 @@ const initialState = {
     games: [],
   },
 };
+
 export interface State {
   user: User;
 }
+
 export const userReducer = createReducer(
   initialState,
   on(addUser, (state, { user }) => {
@@ -28,7 +30,6 @@ export const userReducer = createReducer(
     };
   }),
   on(updateUser, (state, { user }) => {
-    console.log(user);
     return {
       ...state,
       user: {
