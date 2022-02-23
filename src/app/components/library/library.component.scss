@@ -33,11 +33,16 @@ padding: 12rem 2rem;
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     max-width: 82rem;
     width: 100%;
     margin: 4rem auto 0;
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media(min-width: 1025px){
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
