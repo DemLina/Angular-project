@@ -5,8 +5,8 @@ import { AppState } from 'src/app/models/state-user.model';
 import { addGame } from 'src/app/store/actions/user.action';
 import { selectGames } from 'src/app/store/selectors/user.selectors';
 import { games } from '../../mocks/games';
-import { MDCSnackbar } from '@material/snackbar';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Filter } from 'src/app/models/filters.model';
 
 @Component({
   selector: 'app-games',
@@ -18,7 +18,7 @@ export class GamesComponent implements OnInit {
   filteredCards: Game[] = [];
   minRange = games[0].price;
   maxRange = this.minRange;
-  filters: any = {
+  filters: Filter = {
     search: '',
     tags: [],
     price: 0,
@@ -59,7 +59,7 @@ export class GamesComponent implements OnInit {
     this.filterCards();
   }
   filterByPrice(value: string): void {
-    this.filters.price = value;
+    this.filters.price = +value;
     this.filterCards();
   }
 

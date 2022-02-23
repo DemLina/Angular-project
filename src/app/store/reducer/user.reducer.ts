@@ -24,16 +24,16 @@ export const userReducer = createReducer(
       user: {
         ...state.user,
         email: user.email,
-      } as any,
+      },
     };
   }),
   on(updateUser, (state, { user }) => {
-    console.log(user)
+    console.log(user);
     return {
       ...state,
       user: {
         ...state.user,
-        ...user
+        ...user,
       } as any,
     };
   }),

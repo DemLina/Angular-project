@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   user!: User;
   @HostListener('window:beforeunload')
   doSomething() {
-    
     this.store.select(selectUser).subscribe((user) => {
       console.log(user);
       localStorage.setItem('userStorage', JSON.stringify(user));
@@ -25,8 +24,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     if (Boolean(sessionStorage.getItem('login'))) {
-      if((localStorage.getItem('userStorage'))) {
-        this.store.dispatch(updateUser({ user: JSON.parse(localStorage.getItem('userStorage') as any) }))
+      if (localStorage.getItem('userStorage')) {
+        this.store.dispatch(updateUser({ user: JSON.parse(localStorage['userStorage']) }));
       }
     }
   }

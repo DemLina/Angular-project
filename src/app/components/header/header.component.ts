@@ -11,7 +11,7 @@ export class HeaderComponent {
   constructor(private myRouter: Router, private _auth: AuthService) {}
 
   logOut() {
-    localStorage.removeItem('userStorage')
+    localStorage.removeItem('userStorage');
     sessionStorage.removeItem('login');
     this.myRouter.navigateByUrl('/login');
     this._auth.isAuth(false);

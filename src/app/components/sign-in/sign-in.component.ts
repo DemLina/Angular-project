@@ -46,6 +46,5 @@ export class SignInComponent implements OnInit {
         this.errorMessage = 'This user does not exist, enter the correct email';
       }
     }
-    
   }
 }
