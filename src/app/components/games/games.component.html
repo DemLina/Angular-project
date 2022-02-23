@@ -6,7 +6,7 @@
     </div>
     <div class="list-cards-with-filters__search">
       <label>
-        <span>Search friends</span>
+        <span>Search games</span>
         <input type="text" placeholder="Search games" #search (input)="searchGames(search.value)" />
       </label>
     </div>
@@ -56,6 +56,9 @@
         </div>
       </div>
       <div class="list-cards-with-filters__list">
+        <div *ngIf="!filteredCards.length" class="list-cards-with-filters__empty">
+          Sorry, your search did not match any games!!!
+        </div>
         <div *ngFor="let card of filteredCards">
           <div class="card">
             <div class="card__header">

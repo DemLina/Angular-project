@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'login', component: SignInComponent },
   { path: 'profile', component: AdminPageComponent, canActivate: [AuthGuard] },
   { path: 'friends', component: FriendsComponent, canActivate: [AuthGuard] },
-  { path: 'library', component: LibraryComponent },
-  { path: 'games', component: GamesComponent },
+  { path: 'library', component: LibraryComponent, canActivate: [AuthGuard] },
+  { path: 'games', component: GamesComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/login' },
 ];
 

@@ -56,6 +56,20 @@
       flex-direction: row-reverse;
     }
   }
+  //.list-cards-with-filters__empty
+  &__empty {
+      color: #6c69ff;
+      font-size: 2rem;
+      margin-top: 3rem;
+      @media(min-width: 768px) {
+        grid-column: span 2;
+      }
+      @media(min-width: 1025px) {
+        grid-column: span 3;
+      }
+      
+
+  }
 
   // .list-cards-with-filters__list
 
