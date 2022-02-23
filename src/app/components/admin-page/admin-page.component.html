@@ -26,7 +26,7 @@
           <label for="age">Age</label>
           <input type="number" placeholder="Age" name="age" required min="0" id="age" formControlName="age" />
         </div>
-        <button type="submit" class="btn btn--purple" [disabled]="adminForm.invalid">Save</button>
+        <button type="submit" class="btn btn--purple" mat-stroked-button (click)="openSnackBar('Your profile is update', 'THANKS !!!!!')" [disabled]="adminForm.invalid">Save</button>
       </form>
     </div>
   </div>
